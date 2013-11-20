@@ -1,0 +1,115 @@
+
+<html>
+
+<head>
+  <title>Javascript Functions</title>
+  <style type="text/css">
+
+    * {
+      font-family: sans-serif;
+    }
+    .spacer {
+      height: 20px;
+    }
+    #box {
+      display: none;
+    }
+
+    #clicks {
+      font-size: 400px;
+      text-align:center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    button {
+      font-size:10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="spacer">
+
+  </div>
+
+  <p id="box">
+    <b><marquee behavior="alternate" scrollamount=50>
+      <br/>
+      <button id="close-box">Close box!</button>
+    </marquee></b>
+
+  </p>
+
+  <h3 align=center>Counter of shame:</h3>
+  <p id="clicks"></p>
+
+  
+
+  <p>
+    You see a box.
+    <a id="open-link" href="pull-down">Open the box</a>
+  </p>
+
+  <p id="pull-down"> </p>
+ 
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    var clickCount = -1;
+
+    $('#open-link').on('mousedown', function (e) {
+      //e.preventDefault();
+      //alert("lol it's locked.");
+      $('#box').show(); 
+      clickCount = -1;
+
+    });
+
+
+    $(document).on('mousedown', function (e) {
+      
+      if (clickCount === 30) {
+        alert("You're struggling...");
+      }
+      clickCount++;
+      $('#clicks').text(clickCount);
+    }
+      );
+
+    $('#close-box').on('click', function (e) {
+      $('#box').hide();
+      if (clickCount === 1) {
+        alert("You hacker! Get out of town!");
+      } else {
+        alert("You had to try " + clickCount + " times! Fool!");
+      }
+      clickCount = 0;
+
+    });
+
+
+
+
+
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
